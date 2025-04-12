@@ -1,0 +1,14 @@
+{
+  "name": "2-docker-node-image-chatbot",
+  "version": "1.0.0",
+  "description": "proyecto inicial donde practicamos y aprendemos sobre imagenes y contenedores Docker",
+  "main": "src/chatbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alvaro&Cristian",
+  "license": "ISC",
+  "dependencies": {
+    "baileys": "^6.7.16"
+  }
+}

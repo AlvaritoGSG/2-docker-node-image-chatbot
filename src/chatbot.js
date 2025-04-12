@@ -39,3 +39,6 @@ const async conectarConWhatsApp = () => {
 
 // run in main file
 conectarConWhatsApp();
+
+// También se requiere la dependencia:
+// npm install qrcode-terminal

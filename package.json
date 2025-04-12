@@ -9,6 +9,7 @@
   "author": "Alvaro&Cristian",
   "license": "ISC",
   "dependencies": {
-    "baileys": "^6.7.16"
+    "baileys": "^6.7.16",
+    "qrcode-terminal": "^0.12.0"
   }
 }

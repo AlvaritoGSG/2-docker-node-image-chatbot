@@ -1,10 +1,7 @@
 const { useMultiFileAuthState, default: makeWASocket, DisconnectReason } = require("baileys")
 
 // Lógica para conectar con WhatsApp
-const async conectarConWhatsApp = () => {
-    // import makeWASocket, { DisconnectReason, useMultiFileAuthState } from 'baileys'
-    // import { Boom } from '@hapi/boom'
-
+const conectarConWhatsApp = async () => {
     const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys')
     const sock = makeWASocket({
         // can provide additional config here
@@ -28,8 +25,16 @@ const async conectarConWhatsApp = () => {
         for (const m of event.messages) {
             console.log(JSON.stringify(m, undefined, 2))
 
+            // if (event.type === 'notify' && !m.key.fromMe && m.message) {
+            //     console.log('message received', m);
+            // }
+            const id = m.key.remoteJid;
+            if (event.type != 'notify' || m.key.fromMe || id.includes("@g.us") || id.includes("@broadcast")) {
+                return;
+            }
+
             console.log('replying to', m.key.remoteJid)
-            await sock.sendMessage(m.key.remoteJid, { text: 'Hello Word' })
+            await sock.sendMessage(m.key.remoteJid, { text: 'Hello WhatsApp' })
         }
     })
 
